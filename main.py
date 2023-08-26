@@ -1,12 +1,12 @@
 import asyncio
 import websockets
 
-async def echo(websocket, path):
+def echo(websocket, path):
     print('Client connected')
 
-    async for message in websocket:
+    for message in websocket:
         print(f'Received: {message}')
-        await websocket.send(f'You sent: {message}')
+        websocket.send(f'You sent: {message}')
 
     print('Client disconnected')
 
